@@ -6,5 +6,5 @@ module.exports = {
     : "http://localhost:3000",
   "process.env.NAMESPACE": "https://pf-nextjs.herokuapp.com",
   "process.env.CLIENT_ID": "gvDq1h9VJKKl4FtpoBkUv9PEt2HuMbvS",
-  "process.env.DOMAIN": "pf-nextjs.herokuapp.com",
+  "process.env.DOMAIN": "dev-tetle0px.eu.auth0.com",
 };

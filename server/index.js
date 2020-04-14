@@ -27,17 +27,6 @@ const robotsOptions = {
   },
 };
 
-const secretData = [
-  {
-    title: "SecretData 1",
-    description: "Plans how to build spaceship",
-  },
-  {
-    title: "SecretData 2",
-    description: "My secret passwords",
-  },
-];
-
 mongoose
   .connect(config.DB_URI, {
     useNewUrlParser: true,
@@ -60,19 +49,6 @@ app
     server.get("/robots.txt", (req, res) => {
       return res.status(200).sendFile("robots.txt", robotsOptions);
     });
-
-    server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
-      return res.json(secretData);
-    });
-
-    server.get(
-      "/api/v1/onlysiteowner",
-      authService.checkJWT,
-      authService.checkRole("siteOwner"),
-      (req, res) => {
-        return res.json(secretData);
-      }
-    );
 
     server.get("*", (req, res) => {
       return handle(req, res);
